@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: '1.0'
+metadata:
+  name: 'ddic.object.display'
+type: application
+ui5Theme: sap_fiori_3
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com
+          scp: true
+        app:
+          name: ZDABDDICOBJ_R
+          description: "DAB: DDIC Object Display App"
+          package: ZDAB_CUST_DDIC_OBJECT
+          transport: H01K900049

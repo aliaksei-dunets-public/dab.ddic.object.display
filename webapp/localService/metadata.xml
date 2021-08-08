@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zdab_custom_ddic_object_sd" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ClassObjectType" sap:label="Class Object Custom Entity" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ABAPObjectType"/>
+                    <PropertyRef Name="ABAPObject"/>
+                </Key>
+                <Property Name="ABAPObjectType" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Object Type" sap:quickinfo="DAB: Object Type"/>
+                <Property Name="ABAPObject" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Object Name" sap:quickinfo="DAB: Object"/>
+                <Property Name="GlobalClassLink" Type="Edm.String" MaxLength="2048" sap:label="Link to Global Class"/>
+                <Property Name="ClassRelevantTypesLink" Type="Edm.String" MaxLength="2048" sap:label="Link to Class Relevant Types"/>
+                <Property Name="LocalTypesLink" Type="Edm.String" MaxLength="2048" sap:label="Link to Local Types"/>
+                <Property Name="UMLDiagramCode" Type="Edm.String" sap:label="UML Diagram Code"/>
+            </EntityType>
+            <EntityType Name="CustomDDICObjectType" sap:label="DAB: Custom DDIC Object" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ABAPObjectCategory"/>
+                    <PropertyRef Name="ABAPObjectType"/>
+                    <PropertyRef Name="ABAPObject"/>
+                </Key>
+                <Property Name="ABAPObjectCategory" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Program ID" sap:quickinfo="Program ID in Requests and Tasks"/>
+                <Property Name="ABAPObjectType" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Object Type"/>
+                <Property Name="ABAPObject" Type="Edm.String" Nullable="false" MaxLength="40" sap:display-format="UpperCase" sap:label="Object Name" sap:quickinfo="Object Name in Object Directory"/>
+                <Property Name="ABAPObjectResponsibleUser" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:text="ResponsibleUserDescr" sap:label="Responsible User" sap:quickinfo="Person Responsible for a Repository Object"/>
+                <Property Name="ResponsibleUserDescr" Type="Edm.String" MaxLength="80" sap:label="Description" sap:quickinfo="User Description"/>
+                <Property Name="ABAPObjectIsDeleted" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Deleted Object" sap:quickinfo="Deletion Flag"/>
+                <Property Name="ABAPPackage" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Package"/>
+                <Property Name="ABAPSoftwareComponent" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Software Component"/>
+                <Property Name="fc_class_facet" Type="Edm.String" MaxLength="1"/>
+                <NavigationProperty Name="to_ClassObject" Relationship="cds_zdab_custom_ddic_object_sd.assoc_2AB8B635CF9641F326ABED53B7C8F3A0" FromRole="FromRole_assoc_2AB8B635CF9641F326ABED53B7C8F3A0" ToRole="ToRole_assoc_2AB8B635CF9641F326ABED53B7C8F3A0"/>
+            </EntityType>
+            <Association Name="assoc_2AB8B635CF9641F326ABED53B7C8F3A0" sap:content-version="1">
+                <End Type="cds_zdab_custom_ddic_object_sd.CustomDDICObjectType" Multiplicity="1" Role="FromRole_assoc_2AB8B635CF9641F326ABED53B7C8F3A0"/>
+                <End Type="cds_zdab_custom_ddic_object_sd.ClassObjectType" Multiplicity="1" Role="ToRole_assoc_2AB8B635CF9641F326ABED53B7C8F3A0"/>
+            </Association>
+            <EntityContainer Name="cds_zdab_custom_ddic_object_sd_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ClassObject" EntityType="cds_zdab_custom_ddic_object_sd.ClassObjectType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="CustomDDICObject" EntityType="cds_zdab_custom_ddic_object_sd.CustomDDICObjectType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_2AB8B635CF9641F326ABED53B7C8F3A0" Association="cds_zdab_custom_ddic_object_sd.assoc_2AB8B635CF9641F326ABED53B7C8F3A0" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="CustomDDICObject" Role="FromRole_assoc_2AB8B635CF9641F326ABED53B7C8F3A0"/>
+                    <End EntitySet="ClassObject" Role="ToRole_assoc_2AB8B635CF9641F326ABED53B7C8F3A0"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotations Target="cds_zdab_custom_ddic_object_sd.cds_zdab_custom_ddic_object_sd_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+                <Annotation Term="Aggregation.ApplySupported">
+                    <Record>
+                        <PropertyValue Property="Transformations">
+                            <Collection>
+                                <String>aggregate</String>
+                                <String>groupby</String>
+                                <String>filter</String>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Rollup" EnumMember="None"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zdab_custom_ddic_object_sd.cds_zdab_custom_ddic_object_sd_Entities/ClassObject" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="GlobalClassLink"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="ClassRelevantTypesLink"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="LocalTypesLink"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="UMLDiagramCode"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SearchExpression"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>GlobalClassLink</PropertyPath>
+                                <PropertyPath>ClassRelevantTypesLink</PropertyPath>
+                                <PropertyPath>LocalTypesLink</PropertyPath>
+                                <PropertyPath>UMLDiagramCode</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zdab_custom_ddic_object_sd.cds_zdab_custom_ddic_object_sd_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../iwbep/common;v=0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="../../iwbep/common;v=0001/$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/sap/ZDAB_CUST_DDICOBJECT_UI_V2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://345236af-6b20-4c65-acb4-b6e2015c2d59.abap.eu10.hana.ondemand.com/sap/opu/odata/sap/ZDAB_CUST_DDICOBJECT_UI_V2/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
