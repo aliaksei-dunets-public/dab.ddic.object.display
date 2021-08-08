@@ -32,5 +32,8 @@
         "dependencies": [
             "@sap/ux-ui5-tooling"
         ]
+    },
+    "dependencies": {
+        "plantuml-encoder": "^1.4.0"
     }
 }
