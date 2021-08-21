@@ -1,238 +1,245 @@
 {
-  "_version": "1.32.0",
-  "sap.app": {
-    "id": "zdab.ddic.object.display",
-    "type": "application",
-    "i18n": "i18n/i18n.properties",
-    "applicationVersion": {
-      "version": "1.0.0"
-    },
-    "title": "{{appTitle}}",
-    "description": "{{appDescription}}",
-    "tags": {
-      "keywords": []
-    },
-    "resources": "resources.json",
-    "dataSources": {
-      "mainService": {
-        "uri": "/sap/opu/odata/sap/ZDAB_CUST_DDICOBJECT_UI_V2/",
-        "type": "OData",
-        "settings": {
-          "annotations": ["ZDAB_CUST_DDICOBJECT_UI_V2_VAN", "annotation"],
-          "localUri": "localService/metadata.xml"
-        }
-      },
-      "ZDAB_CUST_DDICOBJECT_UI_V2_VAN": {
-        "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZDAB_CUST_DDICOBJECT_UI_V2_VAN',Version='0001')/$value/",
-        "type": "ODataAnnotation",
-        "settings": {
-          "localUri": "localService/ZDAB_CUST_DDICOBJECT_UI_V2_VAN.xml"
-        }
-      },
-      "annotation": {
-        "type": "ODataAnnotation",
-        "uri": "annotations/annotation.xml",
-        "settings": {
-          "localUri": "annotations/annotation.xml"
-        }
-      }
-    },
-    "offline": false,
-    "sourceTemplate": {
-      "id": "ui5template.smartTemplate",
-      "version": "1.40.12"
-    },
-    "crossNavigation": {
-      "inbounds": {
-        "zdab-ddic-object-display-inbound": {
-          "signature": {
-            "parameters": {},
-            "additionalParameters": "allowed"
-          },
-          "semanticObject": "zdab_ddicobject",
-          "action": "display",
-          "title": "DDIC Objects",
-          "subTitle": "Display",
-          "icon": ""
-        }
-      }
-    }
-  },
-  "sap.ui": {
-    "technology": "UI5",
-    "icons": {
-      "icon": "",
-      "favIcon": "",
-      "phone": "",
-      "phone@2": "",
-      "tablet": "",
-      "tablet@2": ""
-    },
-    "deviceTypes": {
-      "desktop": true,
-      "tablet": true,
-      "phone": true
-    },
-    "supportedThemes": ["sap_hcb", "sap_belize", "sap_fiori_3"]
-  },
-  "sap.ui5": {
-    "resources": {
-      "js": [],
-      "css": []
-    },
-    "dependencies": {
-      "minUI5Version": "1.65.0",
-      "libs": {
-        "sap.ui.core": {
-          "lazy": false
+    "_version": "1.32.0",
+    "sap.app": {
+        "id": "zdab.custom.ddic.object.display",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.0.0"
         },
-        "sap.ui.generic.app": {
-          "lazy": false
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "tags": {
+            "keywords": []
         },
-        "sap.suite.ui.generic.template": {
-          "lazy": false
-        }
-      },
-      "components": {}
-    },
-    "models": {
-      "i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
-      },
-      "@i18n": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/i18n.properties"
-      },
-      "i18n|sap.suite.ui.generic.template.ListReport|CustomDDICObject": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/ListReport/CustomDDICObject/i18n.properties"
-      },
-      "i18n|sap.suite.ui.generic.template.ObjectPage|CustomDDICObject": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/ObjectPage/CustomDDICObject/i18n.properties"
-      },
-      "i18n|sap.suite.ui.generic.template.ObjectPage|ClassObject": {
-        "type": "sap.ui.model.resource.ResourceModel",
-        "uri": "i18n/ObjectPage/ClassObject/i18n.properties"
-      },
-      "": {
-        "dataSource": "mainService",
-        "preload": true,
-        "settings": {
-          "defaultBindingMode": "TwoWay",
-          "defaultCountMode": "Inline",
-          "refreshAfterChange": false,
-          "metadataUrlParams": {
-            "sap-value-list": "none"
-          }
-        }
-      }
-    },
-    "extends": {
-      "extensions": {
-        "sap.ui.viewExtensions": {
-          "sap.suite.ui.generic.template.ObjectPage.view.Details": {
-            "AfterSubSection|CustomDDICObject|idClassDetails": {
-              "type": "XML",
-              "className": "sap.ui.core.Fragment",
-              "fragmentName": "zdab.ddic.object.display.ext.fragment.UMLClassDiagram",
-              "sap.ui.generic.app": {
-                "title": "UML Class Diagram"
-              }
-            }
-          },
-          "sap.suite.ui.generic.template.ListReport.view.ListReport": {}
-        },
-        "sap.ui.controllerExtensions": {
-          "sap.suite.ui.generic.template.ObjectPage.view.Details": {
-            "controllerName": "zdab.ddic.object.display.ext.controller.ObjectPageExt",
-            "sap.ui.generic.app": {
-              "CustomDDICObject": {
-                "EntitySet": "CustomDDICObject",
-                "Sections": {
-                  "idClassDetails": {
-                    "id": "idClassDetails",
-                    "Actions": {
-                      "idGetUMLDiagram": {
-                        "id": "idGetUMLDiagramButton",
-                        "text": "Show UML Class Diagram",
-                        "press": "onGetUMLDiagram",
-                        "requiresSelection": false
-                      }
-                    }
-                  }
+        "resources": "resources.json",
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZDAB_CUST_DDICOBJECT_UI_V2/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZDAB_CUST_DDICOBJECT_UI_V2_VAN",
+                        "annotation"
+                    ],
+                    "localUri": "localService/metadata.xml"
                 }
-              }
+            },
+            "ZDAB_CUST_DDICOBJECT_UI_V2_VAN": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZDAB_CUST_DDICOBJECT_UI_V2_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/ZDAB_CUST_DDICOBJECT_UI_V2_VAN.xml"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
             }
-          }
+        },
+        "offline": false,
+        "sourceTemplate": {
+            "id": "ui5template.smartTemplate",
+            "version": "1.40.12"
+        },
+        "crossNavigation": {
+            "inbounds": {
+                "zdab-ddic-object-display-inbound": {
+                    "signature": {
+                        "parameters": {},
+                        "additionalParameters": "allowed"
+                    },
+                    "semanticObject": "zdab_ddicobject",
+                    "action": "display",
+                    "title": "DDIC Objects",
+                    "subTitle": "Display",
+                    "icon": ""
+                }
+            }
         }
-      }
     },
-    "contentDensities": {
-      "compact": true,
-      "cozy": true
-    }
-  },
-  "sap.ui.generic.app": {
-    "_version": "1.3.0",
-    "settings": {
-      "forceGlobalRefresh": false,
-      "objectPageHeaderType": "Dynamic",
-      "considerAnalyticalParameters": true,
-      "showDraftToggle": false,
-      "flexibleColumnLayout": {
-        "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
-        "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
-      }
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        },
+        "supportedThemes": [
+            "sap_hcb",
+            "sap_belize",
+            "sap_fiori_3"
+        ]
     },
-    "pages": {
-      "ListReport|CustomDDICObject": {
-        "entitySet": "CustomDDICObject",
-        "component": {
-          "name": "sap.suite.ui.generic.template.ListReport",
-          "list": true,
-          "settings": {
-            "condensedTableLayout": true,
-            "smartVariantManagement": true,
-            "enableTableFilterInPageVariant": true,
-            "filterSettings": {
-              "dateSettings": {
-                "useDateRange": true
-              }
+    "sap.ui5": {
+        "resources": {
+            "js": [],
+            "css": []
+        },
+        "dependencies": {
+            "minUI5Version": "1.65.0",
+            "libs": {
+                "sap.ui.core": {
+                    "lazy": false
+                },
+                "sap.ui.generic.app": {
+                    "lazy": false
+                },
+                "sap.suite.ui.generic.template": {
+                    "lazy": false
+                }
+            },
+            "components": {}
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "i18n|sap.suite.ui.generic.template.ListReport|CustomDDICObject": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/ListReport/CustomDDICObject/i18n.properties"
+            },
+            "i18n|sap.suite.ui.generic.template.ObjectPage|CustomDDICObject": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/ObjectPage/CustomDDICObject/i18n.properties"
+            },
+            "i18n|sap.suite.ui.generic.template.ObjectPage|ClassObject": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/ObjectPage/ClassObject/i18n.properties"
+            },
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
             }
-          }
+        },
+        "extends": {
+            "extensions": {
+                "sap.ui.viewExtensions": {
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "AfterSubSection|CustomDDICObject|idClassDetails": {
+                            "type": "XML",
+                            "className": "sap.ui.core.Fragment",
+                            "fragmentName": "zdab.custom.ddic.object.display.ext.fragment.UMLClassDiagram",
+                            "sap.ui.generic.app": {
+                                "title": "UML Diagram"
+                            }
+                        }
+                    },
+                    "sap.suite.ui.generic.template.ListReport.view.ListReport": {}
+                },
+                "sap.ui.controllerExtensions": {
+                    "sap.suite.ui.generic.template.ObjectPage.view.Details": {
+                        "controllerName": "zdab.custom.ddic.object.display.ext.controller.ObjectPageExt",
+                        "sap.ui.generic.app": {
+                            "CustomDDICObject": {
+                                "EntitySet": "CustomDDICObject",
+                                "Sections": {
+                                    "idClassDetails": {
+                                        "id": "idClassDetails",
+                                        "Actions": {
+                                            "idGetUMLDiagram": {
+                                                "id": "idGetUMLDiagramButton",
+                                                "text": "Show UML Class Diagram",
+                                                "press": "onGetUMLDiagram",
+                                                "requiresSelection": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        }
+    },
+    "sap.ui.generic.app": {
+        "_version": "1.3.0",
+        "settings": {
+            "forceGlobalRefresh": false,
+            "objectPageHeaderType": "Dynamic",
+            "considerAnalyticalParameters": true,
+            "showDraftToggle": false,
+            "flexibleColumnLayout": {
+                "defaultTwoColumnLayoutType": "TwoColumnsMidExpanded",
+                "defaultThreeColumnLayoutType": "ThreeColumnsEndExpanded"
+            }
         },
         "pages": {
-          "ObjectPage|CustomDDICObject": {
-            "entitySet": "CustomDDICObject",
-            "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
-            "component": {
-              "name": "sap.suite.ui.generic.template.ObjectPage"
-            },
-            "pages": {
-              "ObjectPage|to_ClassObject": {
-                "navigationProperty": "to_ClassObject",
-                "entitySet": "ClassObject",
-                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+            "ListReport|CustomDDICObject": {
+                "entitySet": "CustomDDICObject",
                 "component": {
-                  "name": "sap.suite.ui.generic.template.ObjectPage"
+                    "name": "sap.suite.ui.generic.template.ListReport",
+                    "list": true,
+                    "settings": {
+                        "condensedTableLayout": true,
+                        "smartVariantManagement": true,
+                        "enableTableFilterInPageVariant": true,
+                        "filterSettings": {
+                            "dateSettings": {
+                                "useDateRange": true
+                            }
+                        }
+                    }
+                },
+                "pages": {
+                    "ObjectPage|CustomDDICObject": {
+                        "entitySet": "CustomDDICObject",
+                        "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                        "component": {
+                            "name": "sap.suite.ui.generic.template.ObjectPage"
+                        },
+                        "pages": {
+                            "ObjectPage|to_ClassObject": {
+                                "navigationProperty": "to_ClassObject",
+                                "entitySet": "ClassObject",
+                                "defaultLayoutTypeIfExternalNavigation": "MidColumnFullScreen",
+                                "component": {
+                                    "name": "sap.suite.ui.generic.template.ObjectPage"
+                                }
+                            }
+                        }
+                    }
                 }
-              }
             }
-          }
         }
-      }
+    },
+    "sap.platform.abap": {
+        "uri": ""
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "transactional"
+    },
+    "sap.platform.hcp": {
+        "uri": ""
     }
-  },
-  "sap.platform.abap": {
-    "uri": ""
-  },
-  "sap.fiori": {
-    "registrationIds": [],
-    "archeType": "transactional"
-  },
-  "sap.platform.hcp": {
-    "uri": ""
-  }
 }

@@ -1,3 +1,7 @@
 <core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m">
-    <Image id='idUmlDiagramSVG' src="" />
+<!-- <Panel expandable="true" headerText="Show UML Diagram" width="auto">
+	<content> -->
+		<Image id='idUmlDiagramSVG' src="" />
+		<!-- </content>
+</Panel> -->
 </core:FragmentDefinition>
